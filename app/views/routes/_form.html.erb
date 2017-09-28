@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <%= form_with scope: :route, url: routes_path, local: true do |f| %>
   <p>
     <%= f.label :name %><br>
@@ -7,4 +8,27 @@
   <p>
     <%= f.submit %>
   </p>
+=======
+<%= form_for(@route) do |form| %>
+  <% if route.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(route.errors.count, "error") %> prohibited this route from being saved:</h2>
+
+      <ul>
+      <% route.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :name %>
+    <%= form.text_field :name %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit 'Создать' %>
+  </div>
+>>>>>>> 56a344c1521400ad4c87c72a38b950c910fe8f5c
 <% end %>
