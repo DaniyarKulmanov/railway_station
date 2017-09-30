@@ -5,4 +5,8 @@ class CreateTickets < ActiveRecord::Migration[5.1]
       t.timestamps
     end
   end
+
+  def change
+    add_column :trains, :ticket_id, :integer
+  end
 end
