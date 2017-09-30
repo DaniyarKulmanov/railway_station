@@ -5,6 +5,6 @@ class CreateUsers < ActiveRecord::Migration[5.1]
 
       t.timestamps
     end
-    add_belongs_to :tickets, :user    
+    add_belongs_to :tickets, :user
   end
 end

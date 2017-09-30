@@ -1,6 +1,8 @@
 class Ticket < ApplicationRecord
-  has_one :train
+  belongs_to :train
   belongs_to :user
-  # has_one :first_station, class_name: 'RailwayStation', foreign_key: :first_station_id
-  #belongs_to :user
+
+  belongs_to :from_station, class_name: 'RailwayStation'
+  belongs_to :to_station, class_name: 'RailwayStation'
+  # accepts_nested_attributes_for :from_station, :to_station
 end
