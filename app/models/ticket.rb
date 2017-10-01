@@ -4,5 +4,4 @@ class Ticket < ApplicationRecord
 
   belongs_to :from_station, class_name: 'RailwayStation'
   belongs_to :to_station, class_name: 'RailwayStation'
-  # accepts_nested_attributes_for :from_station, :to_station
 end
