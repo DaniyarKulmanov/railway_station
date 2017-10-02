@@ -1,4 +1,4 @@
-<%= form_for(@route) do |form| %>
+<%= form_with(model: route, local: true) do |form| %>
   <% if route.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(route.errors.count, "error") %> prohibited this route from being saved:</h2>
@@ -17,6 +17,6 @@
   </div>
 
   <div class="actions">
-    <%= form.submit 'Создать' %>
+    <%= form.submit "#{ route.new_record? ? 'Создать' : 'Изменить' }" %>
   </div>
 <% end %>
