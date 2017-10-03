@@ -10,11 +10,11 @@
   <% if @railway_station.trains.empty? %>
     На станции поездов нет
   <% else %>
+    <ul>
     <% @railway_station.trains.each do |train| %>
-      <li>
-        <%= render 'trains/train', train: train %>
-      </li>
+      <li><%= train.number %></li>
     <% end %>
+  </ul>
   <% end %>
 </p>
 
