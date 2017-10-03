@@ -18,7 +18,7 @@ class TrainsController < ApplicationController
   def create
     @train = Train.new(train_params)
 
-    if @route.save
+    if @train.save
       redirect_to @train
     else
       render :new
