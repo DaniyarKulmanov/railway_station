@@ -15,8 +15,17 @@
   <% else %>
     <ul>
        <% @route.railway_stations.each do |station| %>
-         <li><%= station.title %></li>
-      <% end %>   
+         <% if station.trains.empty? %>
+           <li><%= "#{station.title} поездов нет" %></li>
+         <% else %>
+           <li><%= "#{station.title} поезда:" %></li>
+             <ul>
+              <% station.trains.each do |train| %>
+                <li><%= train.number %></li>
+              <% end %>
+             </ul>
+         <% end %>
+      <% end %>
     </ul>
   <% end %>
 </p>
