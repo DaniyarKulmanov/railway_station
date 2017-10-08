@@ -3,5 +3,5 @@ class Wagon < ApplicationRecord
 
   belongs_to :train
 
-  validates :comfort_level, inclusion: { in: WAGON_TYPE }
+  validates :comfort_level, inclusion: WAGON_TYPE
 end
