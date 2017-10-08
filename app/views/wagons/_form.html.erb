@@ -3,7 +3,7 @@
 
   <div class="field">
     <%= form.label :comfort_level, 'Тип вагона' %>
-    <%= form.text_field :comfort_level %>
+    <%= form.select :comfort_level, Wagon::WAGON_TYPE %>
   </div>
   <div class="field">
     <%= form.label :upper_seats, 'Количество верхних мест:' %>
