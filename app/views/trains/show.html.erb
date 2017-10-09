@@ -13,13 +13,41 @@
   <% end %>
 </p>
 
+<p>
 <strong>Маршрут:</strong>
-<% if @train.route.present? %>
-  <%= @train.route.name %>
-<% else %>
-  Маршрут не назначен
+  <% if @train.route.present? %>
+    <%= @train.route.name %>
+  <% else %>
+    Маршрут не назначен
+  <% end %>
+</p>
+
+<p>
+<strong>Вагоны:</strong>
+  <% if @train.wagons.empty? %>
+    Список пуст
+  <% else %>
+    <ul>
+      <p>
+      Купейные вагоны:
+      <ul>
+        <li><%= "Всего вагонов: #{@train.wagons_count("Купе")}" %></li>
+        <li><%= "Верхних мест: #{@train.seats_count 'Купе', :upper}" %></li>
+        <li><%= "Нижних мест: #{@train.seats_count 'Купе', :bottom}" %></li>
+      </ul>
+      </p>  
+    <p>
+      Плацкартные вагоны:
+      <ul>
+        <li><%= "Всего вагонов: #{@train.wagons_count("Плацкарт")}" %></li>
+        <li><%= "Верхних мест: #{@train.seats_count 'Плацкарт', :upper}" %></li>
+        <li><%= "Нижних мест: #{@train.seats_count 'Плацкарт', :bottom}" %></li>
+      </ul>
+    </p>
+    </ul>
 <% end %>
 </p>
+
 
 <%= link_to 'Редактировать', edit_train_path(@train) %> |
 <%= link_to 'Назад', trains_path %>
