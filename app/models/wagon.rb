@@ -12,5 +12,6 @@ class Wagon < ApplicationRecord
     self.comfort_level = 'Купе' if self.instance_of? CoupeWagon
     self.comfort_level = 'Плацкарт' if self.instance_of? EconomWagon
     self.comfort_level = 'СВ' if self.instance_of? CbWagon
+    self.comfort_level = 'Сидячий' if self.instance_of? SittingWagon
   end
 end
