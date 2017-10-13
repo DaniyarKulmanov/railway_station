@@ -3,9 +3,10 @@ class Wagon < ApplicationRecord
 
   belongs_to :train
   before_validation :set_comfort_level
-  after_validation :set_wagon_position
+  before_validation :set_wagon_position
 
   validates :comfort_level, inclusion: WAGON_TYPE
+  validates :position, uniqueness:  { scope: :train_id }
 
   private
 
@@ -17,6 +18,6 @@ class Wagon < ApplicationRecord
   end
 
   def set_wagon_position
-     self.position = self.train.wagons.find_index(self) + 1
+     self.position = self.train.wagons.size + 1 if self.train
   end
 end
