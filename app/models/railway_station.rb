@@ -9,4 +9,7 @@ class RailwayStation < ApplicationRecord
     route_stations = railway_stations_routes.where(route: route).first
     route_stations.update(station_number: number) if route_stations
   end
+
+  # scope :sorted, -> {
+  #   joins(:railway_stations_routes).order("railway_stations_routes.station_number ASC") }
 end
