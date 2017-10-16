@@ -28,22 +28,11 @@
     Список пуст
   <% else %>
     <ul>
-      <p>
-      Купейные вагоны:
-      <ul>
-        <li><%= "Всего вагонов: #{@train.wagons_count("Купе")}" %></li>
-        <li><%= "Верхних мест: #{@train.seats_count 'Купе', :upper}" %></li>
-        <li><%= "Нижних мест: #{@train.seats_count 'Купе', :bottom}" %></li>
-      </ul>
-      </p>  
-    <p>
-      Плацкартные вагоны:
-      <ul>
-        <li><%= "Всего вагонов: #{@train.wagons_count("Плацкарт")}" %></li>
-        <li><%= "Верхних мест: #{@train.seats_count 'Плацкарт', :upper}" %></li>
-        <li><%= "Нижних мест: #{@train.seats_count 'Плацкарт', :bottom}" %></li>
-      </ul>
-    </p>
+      <% @train.wagons.each do |wagon| %>
+        <ul>
+          <li><%= link_to wagon.position, wagon %></li>
+        </ul>
+      <% end %>
     </ul>
 <% end %>
 </p>

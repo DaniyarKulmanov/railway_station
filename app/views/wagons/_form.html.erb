@@ -14,6 +14,18 @@
     <%= form.text_field :bottom_seats, id: :bottom_seats %>
   </div>
   <div class="field">
+    <%= form.label :site_top_seats, 'Количество боковых, верхних мест:' %>
+    <%= form.text_field :site_top_seats, id: :site_top_seats %>
+  </div>
+  <div class="field">
+    <%= form.label :site_bottom_seats, 'Количество боковых, верхних мест:' %>
+    <%= form.text_field :site_bottom_seats, id: :site_bottom_seats %>
+  </div>
+  <div class="field">
+    <%= form.label :sitting_seats, 'Количество сидячих мест:' %>
+    <%= form.text_field :sitting_seats, id: :site_bottositting_seatsm_seats %>
+  </div>
+  <div class="field">
     <%= form.label :train, 'Поезд' %>
     <%= form.collection_select :train_id, Train.all, :id, :number %>
   </div>

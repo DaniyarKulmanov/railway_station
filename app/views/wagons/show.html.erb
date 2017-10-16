@@ -4,15 +4,41 @@
   <strong>Тип вагона:</strong>
   <%= @wagon.comfort_level %>
 </p>
+<%if !@wagon.upper_seats.nil?%>
 <p>
   <strong>Верхние места:</strong>
   <%= @wagon.upper_seats %>
 </p>
+<% end %>
 
+<%if !@wagon.bottom_seats.nil?%>
 <p>
 <strong>Нижние места:</strong>
   <%= @wagon.bottom_seats %>
 </p>
+<% end %>
+
+<%if !@wagon.side_top_seats.nil?%>
+<p>
+  <strong>Верхние боковые места:</strong>
+  <%= @wagon.side_top_seats %>
+</p>
+<% end %>
+
+<%if !@wagon.side_bottom_seats.nil?%>
+<p>
+<strong>Нижние боковые места:</strong>
+  <%= @wagon.side_bottom_seats %>
+</p>
+<% end %>
+
+<%if !@wagon.sitting_seats.nil?%>
+<p>
+<strong>Сидячие места:</strong>
+  <%= @wagon.sitting_seats %>
+</p>
+<% end %>
+
 
 <p>
 <strong>Поезд:</strong>
