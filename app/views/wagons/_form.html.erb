@@ -2,8 +2,8 @@
   <%= render 'common/errors', resource: wagon %>
 
   <div class="field">
-    <%= form.label :comfort_level, 'Тип вагона' %>
-    <%= form.select :comfort_level, Wagon::WAGON_TYPE %>
+    <%= form.label :type, 'Тип вагона' %>
+    <%= form.select :type, Wagon::WAGON_TYPE %>
   </div>
   <div class="field">
     <%= form.label :upper_seats, 'Количество верхних мест:' %>
