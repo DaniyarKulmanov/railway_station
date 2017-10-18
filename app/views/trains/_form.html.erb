@@ -17,10 +17,8 @@
     <%= form.label :sort, 'Тип сортировки:' %> <br />
 
     <%= form.label :sort_asc, 'с головы поезда', value: 'true' %>
-    <%= form.radio_button :sort, :sort_asc, checked: true %>
+    <%= form.check_box :sort_asc %>
 
-    <%= form.label :sort_dsc, 'с хвоста поезда', value: 'false' %>
-    <%= form.radio_button :sort, :sort_dsc %><br/>
   </div>
   <div class="actions">
     <%= form.submit "#{ train.new_record? ? 'Создать' : 'Изменить'}" %>

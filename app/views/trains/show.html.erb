@@ -28,14 +28,14 @@
     Список пуст
   <% else %>
     <ul>
-      <% if @train.sort_dsc = true %>
-        <% @train.wagons.reverse_each do |wagon| %>
+      <% if @train.sort_asc %>
+        <% @train.wagons.each do |wagon| %>
           <ul>
             <li><%= link_to wagon.position, wagon %></li>
           </ul>
         <% end %>
       <% else%>
-        <% @train.wagons.each do |wagon| %>
+        <% @train.wagons.reverse_each do |wagon| %>
           <ul>
             <li><%= link_to wagon.position, wagon %></li>
           </ul>

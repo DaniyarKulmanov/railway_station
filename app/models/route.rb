@@ -18,6 +18,5 @@ class Route < ApplicationRecord
     if railway_stations.size < 2
       errors.add(:base, 'Route should contain at least 2 stations')
     end
-    errors.add(:name, 'Name error :D !')
   end
 end
