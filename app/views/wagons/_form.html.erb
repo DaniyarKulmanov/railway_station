@@ -3,7 +3,7 @@
 
   <div class="field">
     <%= form.label :type, 'Тип вагона' %>
-    <%= form.select :type, Wagon::WAGON_TYPE %>
+    <%= form.collection_select :type, Wagon.types, :first, :last %>
   </div>
   <div class="field">
     <%= form.label :upper_seats, 'Количество верхних мест:' %>
