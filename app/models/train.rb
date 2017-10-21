@@ -7,10 +7,10 @@ class Train < ApplicationRecord
   validates :number, presence: true
 
   def wagons_count(type)
-    self.wagons.count { |wagon| wagon.type == type }
+    Wagon.all.where(type: type).count
   end
 
   def seats_count(type,seat)
-     self.wagons.where(type: type).sum(seat)
+     wagons.where(type: type).sum(seat)
   end
 end

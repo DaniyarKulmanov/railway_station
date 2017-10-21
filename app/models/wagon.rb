@@ -7,6 +7,7 @@ class Wagon < ApplicationRecord
 
   def self.types
     types = {CoupeWagon: 'Купе', EconomWagon: 'Плацкарт', CbWagon: 'СВ', SittingWagon: 'Сидячий'}
+    types
   end
 
   def name
@@ -21,10 +22,7 @@ class Wagon < ApplicationRecord
   private
 
   def set_wagon_position
-    if self.train && self.train.wagons.last
-     self.position = self.train.wagons.last.position + 1
-    else
-      self.position = 1
-    end
+    self.position = 1 if self.train.wagons.last.nil?
+    self.position = self.train.wagons.last.position.to_i + 1 unless self.train.wagons.last.nil?
   end
 end
