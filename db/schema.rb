@@ -50,7 +50,7 @@ ActiveRecord::Schema.define(version: 20171018140219) do
     t.integer "current_station_id"
     t.integer "ticket_id"
     t.integer "route_id"
-    t.boolean "sort_asc"
+    t.boolean "sort_asc", default: false
     t.index ["route_id"], name: "index_trains_on_route_id"
   end
 

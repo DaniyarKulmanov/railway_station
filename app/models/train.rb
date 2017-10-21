@@ -13,4 +13,12 @@ class Train < ApplicationRecord
   def seats_count(type,seat)
      wagons.where(type: type).sum(seat)
   end
+
+  def sorted_wagons
+    if sort_asc
+      wagons.sort_by {|wagon| wagon.position}
+    else
+      wagons.reverse {|wagon| wagon.position}
+    end
+  end
 end
