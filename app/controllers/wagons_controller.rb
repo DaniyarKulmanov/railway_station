@@ -17,8 +17,7 @@ class WagonsController < ApplicationController
 
   def create
     @wagon = Wagon.new(wagon_params)
-    @wagon.type = wagon_params[:type]
-
+    
     if @wagon.save
       redirect_to @wagon
     else
