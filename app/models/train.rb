@@ -7,15 +7,18 @@ class Train < ApplicationRecord
   validates :number, presence: true
 
   def wagons_count(type)
-    self.wagons.count { |wagon| wagon.comfort_level == type }
+    Wagon.all.where(type: type).count
   end
 
   def seats_count(type,seat)
-    count ||= 0
-     self.wagons.each do |wagon|
-       count += wagon.upper_seats if wagon.comfort_level == type && seat == :upper
-       count += wagon.bottom_seats if wagon.comfort_level == type && seat == :bottom
-     end
-     count
+     wagons.where(type: type).sum(seat)
+  end
+
+  def sorted_wagons
+    if sort_asc
+      wagons.sort_by {|wagon| wagon.position}
+    else
+      wagons.reverse {|wagon| wagon.position}
+    end
   end
 end

@@ -13,6 +13,13 @@
     <%= form.label :route, 'Маршрут' %>
     <%= form.collection_select :route_id, Route.all, :id, :name %>
   </div>
+  <div class="field">
+    <%= form.label :sort, 'Тип сортировки:' %> <br />
+
+    <%= form.label :sort_asc, 'с головы поезда', value: 'true' %>
+    <%= form.check_box :sort_asc %>
+
+  </div>
   <div class="actions">
     <%= form.submit "#{ train.new_record? ? 'Создать' : 'Изменить'}" %>
   </div>

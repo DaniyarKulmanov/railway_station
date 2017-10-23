@@ -2,18 +2,8 @@
 
 <p>
   <strong>Тип вагона:</strong>
-  <%= @wagon.comfort_level %>
-</p>
-<p>
-  <strong>Верхние места:</strong>
-  <%= @wagon.upper_seats %>
-</p>
-
-<p>
-<strong>Нижние места:</strong>
-  <%= @wagon.bottom_seats %>
-</p>
-
+  <%= @wagon.name %>
+  <%= render @wagon.type.downcase %>
 <p>
 <strong>Поезд:</strong>
   <%= @wagon.train.number %>

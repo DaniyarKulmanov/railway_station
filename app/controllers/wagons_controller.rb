@@ -17,7 +17,7 @@ class WagonsController < ApplicationController
 
   def create
     @wagon = Wagon.new(wagon_params)
-
+    
     if @wagon.save
       redirect_to @wagon
     else
@@ -45,6 +45,15 @@ class WagonsController < ApplicationController
     end
 
     def wagon_params
-      params.require(:wagon).permit(:comfort_level, :upper_seats, :bottom_seats, :train_id)
+      params.require(:wagon).permit(
+                                    :upper_seats,
+                                    :bottom_seats,
+                                    :train_id,
+                                    :sitting_seats,
+                                    :side_top_seats,
+                                    :side_bottom_seats,
+                                    :type
+                                    )
     end
+
 end
