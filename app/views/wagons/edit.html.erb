@@ -3,4 +3,4 @@
 <%= render 'form', wagon: @wagon %>
 
 <%= link_to 'Показать', @wagon %> |
-<%= link_to 'Назад', wagons_path %>
+<%= link_to 'Назад', @train.nil? ? root_path :  train_path(@train) %>

@@ -1,6 +1,8 @@
 class WagonsController < ApplicationController
   before_action :set_wagon, only: [:show, :edit, :update, :destroy]
-
+  before_action :set_train, only: [:new, :create]
+  before_action :set_train_id, only: [:show]
+  # TODO from 50 minute.
   def index
     @wagons = Wagon.all
   end
@@ -17,7 +19,7 @@ class WagonsController < ApplicationController
 
   def create
     @wagon = Wagon.new(wagon_params)
-    
+
     if @wagon.save
       redirect_to @wagon
     else
@@ -40,20 +42,28 @@ class WagonsController < ApplicationController
 
   private
 
-    def set_wagon
-      @wagon = Wagon.find(params[:id])
-    end
+  def set_train
+    @train = Train.find(params[:train_id])
+  end
 
-    def wagon_params
-      params.require(:wagon).permit(
-                                    :upper_seats,
-                                    :bottom_seats,
-                                    :train_id,
-                                    :sitting_seats,
-                                    :side_top_seats,
-                                    :side_bottom_seats,
-                                    :type
-                                    )
-    end
+  def set_train_id
+    @train = Wagon.find(params[:id]).train_id
+  end
+
+  def set_wagon
+    @wagon = Wagon.find(params[:id])
+  end
+
+  def wagon_params
+    params.require(:wagon).permit(
+                                  :upper_seats,
+                                  :bottom_seats,
+                                  :train_id,
+                                  :sitting_seats,
+                                  :side_top_seats,
+                                  :side_bottom_seats,
+                                  :type
+                                  )
+  end
 
 end

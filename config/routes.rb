@@ -1,5 +1,12 @@
 Rails.application.routes.draw do
-  resources :trains, :railway_stations, :routes, :wagons
+  resources :railway_stations do
+    patch :update_position, on: :member
+  end
+  resources :trains do
+    resources :wagons, shallow: true
+  end
+
+  resources :routes
   resources :coupe_wagons, :econom_wagons, :cb_wagons, :sitting_wagons, controller: 'wagons', type: 'CoupeWagon'
 
   root 'welcome#index'
