@@ -3,8 +3,7 @@ class RailwayStation < ApplicationRecord
   has_many :railway_stations_routes
   has_many :routes, through: :railway_stations_routes
 
-  # TODO dont work
-  scope :ordered, -> { joins(:railway_stations_routes).order("railway_stations_routes.position").uniq }
+  scope :ordered, -> { joins(:railway_stations_routes).order("railway_stations_routes.station_number").uniq }
 
   validates :title, presence: true
 
