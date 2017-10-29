@@ -1,0 +1,16 @@
+<h1>Новый поиск</h1>
+
+<div class="row">
+
+    <%= form_for(:search, url: search_path, method: :get) do |f| %>
+
+    <%= f.label :station_from, 'Откуда' %>
+    <%= f.collection_select :station_from, RailwayStation.all, :id, :title, :include_blank => true %>
+
+    <%= f.label :station_to, 'Куда' %>
+    <%= f.collection_select :station_to, RailwayStation.all, :id, :title, :include_blank => true %>
+
+      <%= f.submit "Найти" %>
+    <% end %>
+
+</div>

@@ -1,1 +1,10 @@
-<h1>Поиск билетов</h1>
+<h1>Доступные маршры</h1>
+  <% @trains = Search.trains(params[:station_from].to_i, params[:station_to].to_i)%>
+  <% @trains.each do |train| %>
+     <%= train.number %>
+  <% end %>
+<p>
+  <%= @trains.count %>
+  <%= params %>
+</p>
+<%= link_to 'Новый поиск', new_search_path %>
