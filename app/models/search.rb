@@ -1,15 +1,14 @@
 class Search
-  def self.trains(station_from, station_to)
-    trains = []
+
+  def self.routes(station_from, station_to)
+    routes = []
     routes_from = Route.joins(:railway_stations).where('railway_stations.id':station_from)
     routes_to = Route.joins(:railway_stations).where('railway_stations.id':station_to)
     routes_from.each do |route_from|
       routes_to.where(id: route_from).each do |route|
-        route.trains.each do |train|
-          trains << train
-        end
+        routes << route
       end
     end
-    trains
+    routes
   end
 end

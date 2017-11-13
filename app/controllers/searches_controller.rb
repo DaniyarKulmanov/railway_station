@@ -11,7 +11,7 @@ class SearchesController < ApplicationController
   private
 
   def search_trains
-    @trains = Search.trains(params[:search][:station_from], params[:search][:station_to])
+    @routes = Search.routes(params[:search][:station_from], params[:search][:station_to])
   end
 
   def search_params

@@ -16,6 +16,10 @@ class RailwayStation < ApplicationRecord
     station_route(route).try(:station_number)
   end
 
+  def arrival(route, type)
+    station_route(route).try(type)
+  end
+
   protected
 
   def station_route(route)
