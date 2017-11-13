@@ -5,10 +5,10 @@
     <%= form_for(:search, url: search_path, method: :get) do |f| %>
 
     <%= f.label :station_from, 'Откуда' %>
-    <%= f.collection_select :station_from, RailwayStation.all, :id, :title, :include_blank => true %>
+    <%= f.collection_select :station_from, @railway_stations, :id, :title, :include_blank => true, selected: 1 %>
 
     <%= f.label :station_to, 'Куда' %>
-    <%= f.collection_select :station_to, RailwayStation.all, :id, :title, :include_blank => true %>
+    <%= f.collection_select :station_to, @railway_stations, :id, :title, :include_blank => true, selected: 2 %>
 
       <%= f.submit "Найти" %>
     <% end %>
