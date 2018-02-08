@@ -1,11 +1,10 @@
 class TicketsController < ApplicationController
 
   def show
-    # ssss
   end
 
   def new
-    # sss
+    @ticket = Ticket.new
   end
 
   def create
