@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   resources :routes
   resources :coupe_wagons, :econom_wagons, :cb_wagons, :sitting_wagons, controller: 'wagons', type: 'CoupeWagon'
   resource :search, only: [:new, :show, :edit]
+  resource :ticket, only: [:new, :show, :create]
 
   root 'welcome#index'
 end
