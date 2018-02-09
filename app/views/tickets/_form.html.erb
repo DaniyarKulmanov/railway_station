@@ -1,3 +1,18 @@
-<%= form_with scope: ticket, local: true do |form| %>
+<%= form_with scope: ticket, url: ticket_path, local: true do |form| %>
+  <%= render 'common/errors', resource: ticket %>
+
+    <div class="field">
+      <%= form.label :full_name, 'ФИО' %>
+      <%= form.text_field :full_name %>
+    </div>
+
+    <div class="field">
+      <%= form.label :passport_number, 'Номер паспорта' %>
+      <%= form.text_field :passport_number %>
+    </div>
+
+    <div class="actions">
+      <%= form.submit 'Подтвердить' %>
+    </div>
 
 <% end %>

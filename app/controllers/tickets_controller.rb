@@ -8,7 +8,7 @@ class TicketsController < ApplicationController
   end
 
   def create
-    # sss
+    render plain: params[:ticket].inspect
   end
 
 end
