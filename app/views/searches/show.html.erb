@@ -5,9 +5,9 @@
 <% else %>
   <%= @routes.each do |route| %>
   <h3><%= "Маршрут: #{route.name}" %></h3>
-    <%= "Отправление #{route.railway_stations.first.arrival(route.id, :arrival)}"%>
+    <%= "Отправление #{Search.route_arrival(route, :arrival)}"%>
   <p>
-    <%= "Прибытие #{route.railway_stations.first.arrival(route.id, :departure)}"%>
+    <%= "Прибытие #{Search.route_arrival(route, :departure)}"%>
   </p>
     <table>
       <thead>

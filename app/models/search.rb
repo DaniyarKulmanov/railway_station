@@ -11,4 +11,8 @@ class Search
     end
     routes
   end
+
+  def self.route_arrival(route, type)
+    route.railway_stations.first.arrival(route.id, type)
+  end
 end
