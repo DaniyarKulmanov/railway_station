@@ -4,9 +4,10 @@ class TicketsController < ApplicationController
   def show
   end
 
-  def new
+  def new # TODO update from :ticket?
     @ticket = Ticket.new
-    @ticket.train_id = params[:train_id] if params[:train_id]
+    @ticket.train_id = params[:ticket][:train_id] if params[:ticket][:train_id]
+    @ticket.from_station_id = params[:ticket][:from_station_id] if params[:ticket][:from_station_id]
   end
 
   def create
@@ -32,7 +33,8 @@ class TicketsController < ApplicationController
                                     :train_id,
                                     :user_id,
                                     :to_station_id,
-                                    :from_station_id
+                                    :from_station_id,
+                                    :ticket
                                   )
   end
 end

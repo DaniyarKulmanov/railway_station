@@ -20,7 +20,11 @@
         <% route.trains.each do |train| %>
           <tr>
             <td><%= train.number %></td>
-            <td><%= link_to 'Купить билет', new_ticket_path(train_id: train.id) %></td>
+            <td><%= link_to 'Купить билет', new_ticket_path(ticket: {
+                train_id: train.id,
+                from_station_id: Search.route_arrival(route, :arrival),
+                to_station_id: Search.route_arrival(route, :departure)
+                }) %></td>
           </tr>
         <% end %>
       </tbody>

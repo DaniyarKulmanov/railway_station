@@ -16,9 +16,12 @@
       <%= form.text_field :train_id, readonly: true %>
     </div>
 
+    <div class="field">
+      <%= form.label :from_station_id, 'Отправление' %>
+      <%= form.text_field :from_station_id, readonly: true %>
+    </div>
+
     <%= form.hidden_field :user_id, value: '1' %>
-    <%= form.hidden_field :from_station_id, value: '1' %>
-    <%= form.hidden_field :to_station_id, value: '2' %>
 
     <div class="actions">
       <%= form.submit 'Подтвердить' %>
