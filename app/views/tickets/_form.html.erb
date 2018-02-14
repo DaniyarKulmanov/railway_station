@@ -11,6 +11,11 @@
       <%= form.text_field :passport_number %>
     </div>
 
+    <div class="field">
+      <%= form.label :train_id, 'Номер поезда' %>
+      <%= form.text_field :train_id, readonly: true %>
+    </div>
+
     <%= form.hidden_field :train_id, value: '5' %>
     <%= form.hidden_field :user_id, value: '1' %>
     <%= form.hidden_field :from_station_id, value: '1' %>

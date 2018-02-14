@@ -6,6 +6,7 @@ class TicketsController < ApplicationController
 
   def new
     @ticket = Ticket.new
+    @ticket.train_id = params[:train_id] if params[:train_id]
   end
 
   def create
