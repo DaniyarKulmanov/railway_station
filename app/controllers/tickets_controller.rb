@@ -8,6 +8,7 @@ class TicketsController < ApplicationController
     @ticket = Ticket.new
     @ticket.train_id = params[:ticket][:train_id] if params[:ticket][:train_id]
     @ticket.from_station_id = params[:ticket][:from_station_id] if params[:ticket][:from_station_id]
+    @ticket.to_station_id = params[:ticket][:to_station_id] if params[:ticket][:to_station_id]
   end
 
   def create
@@ -32,8 +33,8 @@ class TicketsController < ApplicationController
                                     :passport_number,
                                     :train_id,
                                     :user_id,
-                                    :to_station_id,
                                     :from_station_id,
+                                    :to_station_id,
                                     :ticket
                                   )
   end
