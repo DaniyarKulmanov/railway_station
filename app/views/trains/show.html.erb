@@ -14,6 +14,10 @@
 </p>
 
 <p>
+  <%= link_to 'Добавить вагон', new_train_wagon_path(@train) %>
+</p>
+
+<p>
 <strong>Маршрут:</strong>
   <% if @train.route.present? %>
     <%= @train.route.name %>
