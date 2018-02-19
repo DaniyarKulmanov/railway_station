@@ -1,0 +1,35 @@
+<h1>Доступные поезда</h1>
+
+<% if @routes.blank? %>
+  <p>Машрутов не найдено</p>
+<% else %>
+  <%= @routes.each do |route| %>
+  <h3><%= "Маршрут: #{route.name}" %></h3>
+    <%= "Отправление #{Search.route_arrival(route, :arrival)}"%>
+  <p>
+    <%= "Прибытие #{Search.route_arrival(route, :departure)}"%>
+  </p>
+    <table>
+      <thead>
+        <tr>
+          <th>Поезда:</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <% route.trains.each do |train| %>
+          <tr>
+            <td><%= train.number %></td>
+            <td><%= link_to 'Купить билет', new_ticket_path(ticket: {
+                train_id: train.id,
+                from_station_id: route.railway_stations.first.id,
+                to_station_id: route.railway_stations.last.id
+                }) %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  <% end %>
+<% end %>
+
+<%= link_to 'Новый поиск', new_search_path %>
