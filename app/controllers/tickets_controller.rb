@@ -1,10 +1,11 @@
 class TicketsController < ApplicationController
+  before_action :authenticate_user!, only: :create
   before_action :set_ticket, only: :show
 
   def show
   end
 
-  def new # TODO update from :ticket?
+  def new
     @ticket = Ticket.new
     @ticket.train_id = params[:ticket][:train_id] if params[:ticket][:train_id]
     @ticket.from_station_id = params[:ticket][:from_station_id] if params[:ticket][:from_station_id]
@@ -12,12 +13,12 @@ class TicketsController < ApplicationController
   end
 
   def create
-    @ticket = Ticket.new(ticket_params)
+    @ticket = current_user.tickets.new(ticket_params) # TODO fix error
 
     if @ticket.save
       redirect_to @ticket
     else
-      render :new
+      redirect_to new_search_path
     end
   end
 
