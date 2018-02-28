@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   resources :coupe_wagons, :econom_wagons, :cb_wagons, :sitting_wagons, controller: 'wagons', type: 'CoupeWagon'
   resource :search, only: [:new, :show, :edit]
 
-  resources :tickets, only: [:new, :show, :create]
+  resources :tickets
 
   namespace :admin do
     resources :railway_stations do
@@ -15,7 +15,6 @@ Rails.application.routes.draw do
     end
 
     resources :routes
-    resources :tickets
   end
 
   root 'welcome#index'

@@ -2,8 +2,11 @@ class TicketsController < ApplicationController
   before_action :authenticate_user!, only: :create
   before_action :set_ticket, only: :show
 
-  def show
+  def index
+    @tickets = Ticket.all
   end
+
+  def show; end
 
   def new
     @ticket = Ticket.new
@@ -20,6 +23,11 @@ class TicketsController < ApplicationController
     else
       redirect_to new_search_path
     end
+  end
+
+  def destroy
+    @ticket.destroy
+    redirect_to tickets_path
   end
 
   private
