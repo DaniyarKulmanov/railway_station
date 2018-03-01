@@ -20,7 +20,7 @@ class TicketsController < ApplicationController
 
   def create
     @ticket = current_user.tickets.new(ticket_params) unless current_user.admin?
-    @ticket = Ticket.new(ticket_params)
+    @ticket ||= Ticket.new(ticket_params)
 
     if @ticket.save
       redirect_to @ticket
