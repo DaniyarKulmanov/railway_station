@@ -1,6 +1,6 @@
 class TicketsController < ApplicationController
   before_action :authenticate_user!, only: :create
-  before_action :set_ticket, only: :show
+  before_action :set_ticket, only: [:show, :edit, :update, :destroy]
 
   def index
     @tickets = Ticket.all
@@ -15,6 +15,8 @@ class TicketsController < ApplicationController
     @ticket.to_station_id = params[:ticket][:to_station_id] if params[:ticket][:to_station_id]
   end
 
+  def edit; end
+
   def create
     @ticket = current_user.tickets.new(ticket_params) # TODO fix error
 
@@ -22,6 +24,14 @@ class TicketsController < ApplicationController
       redirect_to @ticket
     else
       redirect_to new_search_path
+    end
+  end
+
+  def update
+    if @ticket.update(ticket_params)
+      redirect_to @ticket
+    else
+      render :edit
     end
   end
 

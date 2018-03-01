@@ -16,7 +16,7 @@
     <%= form.hidden_field :to_station_id %>
 
     <div class="actions">
-      <%= form.submit 'Подтвердить' %>
+      <%= form.submit "#{ ticket.new_record? ? 'Подтвердить' : 'Изменить'}" %>
     </div>
 
 <% end %>
