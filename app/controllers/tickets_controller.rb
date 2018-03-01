@@ -19,7 +19,8 @@ class TicketsController < ApplicationController
   def edit; end
 
   def create
-    @ticket = current_user.tickets.new(ticket_params) # TODO fix error
+    @ticket = current_user.tickets.new(ticket_params) unless current_user.admin?
+    @ticket = Ticket.new(ticket_params)
 
     if @ticket.save
       redirect_to @ticket

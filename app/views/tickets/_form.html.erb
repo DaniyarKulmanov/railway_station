@@ -15,6 +15,13 @@
     <%= form.hidden_field :from_station_id %>
     <%= form.hidden_field :to_station_id %>
 
+    <% if current_user.admin? %>
+      <div class="field">
+        <%= form.label :user, 'Пользователь' %>
+        <%= form.collection_select :user_id, User.all, :id, :email %>
+      </div>
+    <% end %>
+
     <div class="actions">
       <%= form.submit "#{ ticket.new_record? ? 'Подтвердить' : 'Изменить'}" %>
     </div>
