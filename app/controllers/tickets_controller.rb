@@ -3,7 +3,8 @@ class TicketsController < ApplicationController
   before_action :set_ticket, only: [:show, :edit, :update, :destroy]
 
   def index
-    @tickets = Ticket.all
+    @tickets = Ticket.all if current_user.admin?
+    @tickets = Ticket.where(user_id: current_user.id) unless current_user.admin?
   end
 
   def show; end
