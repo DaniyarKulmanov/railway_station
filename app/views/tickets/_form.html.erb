@@ -11,13 +11,19 @@
       <%= form.text_field :passport_number %>
     </div>
 
-    <%= form.hidden_field :user_id, value: '1' %>
     <%= form.hidden_field :train_id %>
     <%= form.hidden_field :from_station_id %>
     <%= form.hidden_field :to_station_id %>
 
+    <% if current_user.admin? %>
+      <div class="field">
+        <%= form.label :user, 'Пользователь' %>
+        <%= form.collection_select :user_id, User.all, :id, :email %>
+      </div>
+    <% end %>
+
     <div class="actions">
-      <%= form.submit 'Подтвердить' %>
+      <%= form.submit "#{ ticket.new_record? ? 'Подтвердить' : 'Изменить'}" %>
     </div>
 
 <% end %>

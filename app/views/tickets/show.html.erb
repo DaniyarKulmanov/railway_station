@@ -4,6 +4,12 @@
       <%= @ticket.full_name %>
   </p>
   <p>
+    <strong>email:</strong>
+    <%= @ticket.user.email %>
+  </p>
+  <p>
     <strong>Номер паспорта:</strong>
       <%= @ticket.passport_number %>
   </p>
+
+<%= link_to 'Назад', tickets_path %>
