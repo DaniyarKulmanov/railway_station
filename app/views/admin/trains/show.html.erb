@@ -34,7 +34,7 @@
     <ul>
       <% @train.sorted_wagons.each do |wagon| %>
         <ul>
-          <li><%= link_to wagon.position, wagon %></li>
+          <li><%= link_to wagon.position, [:admin, wagon] %></li>
         </ul>
       <% end %>
     </ul>

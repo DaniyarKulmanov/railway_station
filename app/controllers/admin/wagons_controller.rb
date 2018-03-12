@@ -20,7 +20,7 @@ class Admin::WagonsController < Admin::BaseController
     @wagon = Wagon.new(wagon_params)
 
     if @wagon.save
-      redirect_to @wagon
+      redirect_to [:admin, @wagon]
     else
       render :new
     end
@@ -28,7 +28,7 @@ class Admin::WagonsController < Admin::BaseController
 
   def update
     if @wagon.update(wagon_params)
-      redirect_to @wagon
+      redirect_to [:admin, @wagon]
     else
       render :edit
     end
@@ -36,7 +36,7 @@ class Admin::WagonsController < Admin::BaseController
 
   def destroy
     @wagon.destroy
-    redirect_to wagons_path
+    redirect_to admin_wagons_path
   end
 
   private

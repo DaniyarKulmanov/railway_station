@@ -1,7 +1,6 @@
 Rails.application.routes.draw do
   devise_for :users
 
-  resources :coupe_wagons, :econom_wagons, :cb_wagons, :sitting_wagons, controller: 'wagons', type: 'CoupeWagon'
   resource :search, only: [:new, :show, :edit]
 
   resources :tickets
@@ -15,6 +14,7 @@ Rails.application.routes.draw do
     end
 
     resources :routes
+    resources :coupe_wagons, :econom_wagons, :cb_wagons, :sitting_wagons, controller: 'wagons', type: 'CoupeWagon'
   end
 
   root 'welcome#index'
