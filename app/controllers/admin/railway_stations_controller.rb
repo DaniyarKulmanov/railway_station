@@ -35,7 +35,7 @@ class Admin::RailwayStationsController < Admin::BaseController
 
   def destroy
     @railway_station.destroy
-    redirect_to railway_stations_path
+    redirect_to admin_railway_stations_path
   end
 
   def update_position
