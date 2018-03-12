@@ -35,7 +35,7 @@ class Admin::TrainsController < Admin::BaseController
 
   def destroy
     @train.destroy
-    redirect_to trains_path
+    redirect_to admin_trains_path
   end
 
   private
