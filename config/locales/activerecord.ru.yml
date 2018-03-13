@@ -12,3 +12,8 @@ ru:
     errors:
       messages:
         blank: 'не должно быть пустым'
+      models:
+        railway_station:
+          attributes:
+            title:
+             blank: 'обязательно для заполнения'
