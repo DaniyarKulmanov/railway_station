@@ -1,2 +1,9 @@
 ru:
-  title: 'Заголовок'
+  common:
+    back: 'Назад'
+  admin:
+    railway_stations:
+      new:
+        title: 'Новая станция'
+      form:
+        submit: 'Создать станцию'
