@@ -10,6 +10,7 @@ class Route < ApplicationRecord
 
   private
 
+  # TODO undefined method `title' for nil:NilClass if no station selected
   def set_name
     self.name = "#{railway_stations.first.title} - #{railway_stations.last.title}"
   end
